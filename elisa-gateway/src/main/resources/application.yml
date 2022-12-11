@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: backend-api
+          uri: lb://BACKEND-API
+          predicates:
+            - Path=/backend/**
+          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: order-service
+#                fallbackuri: forward:/orderFallBack
+        - id: web-api
+          uri: lb://WEB-API
+          predicates:
+            - Path=/web/**
+          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: payment-service
+#                fallbackuri: forward:/paymentFallback
+
+
+server:
+  port: 8989
