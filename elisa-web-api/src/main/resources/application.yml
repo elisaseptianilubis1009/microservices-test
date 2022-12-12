@@ -4,3 +4,12 @@ spring:
 
 server:
   port: 9193
+customer:
+  backend:
+    url: http://localhost:8989/backend
+
+springdoc:
+  use-fqn: true
+  writer-with-order-by-keys: true
+  swagger-ui.path: /swagger-ui
+  api-docs.path: /v3/api-docs

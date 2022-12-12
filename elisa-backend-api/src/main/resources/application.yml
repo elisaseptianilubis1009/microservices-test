@@ -1,6 +1,9 @@
 server:
   port: 9192
 spring:
+  data:
+    rest:
+      base-path: /backend
   jpa:
     hibernate:
       ddl-auto: create-drop
