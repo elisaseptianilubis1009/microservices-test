@@ -9,10 +9,10 @@ Demo Documentation
 
 
 1.Discovery Service with Spring Eureka
-	  - Backend API : CRUD API Service with Spring Data REST
-       - Web API : CRUD API Service with Feign
-       - Config Server : Configuration Service with Spring Cloud Service
-       - Gateway Service : Gateway Service with Spring Cloud Gateway
+  - Backend API : CRUD API Service with Spring Data REST
+  - Web API : CRUD API Service with Feign
+  - Config Server : Configuration Service with Spring Cloud Service
+  - Gateway Service : Gateway Service with Spring Cloud Gateway
 
 
 ![image](https://user-images.githubusercontent.com/70183669/207205363-d2b44841-a254-4704-9219-b3eed6313c7d.png)
