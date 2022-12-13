@@ -11,7 +11,7 @@ spring:
           filters:
 #            - name: CircuitBreaker
 #              args:
-#                name: order-service
+#                name: backend-api
 #                fallbackuri: forward:/orderFallBack
         - id: web-api
           uri: lb://WEB-API
@@ -20,7 +20,7 @@ spring:
           filters:
 #            - name: CircuitBreaker
 #              args:
-#                name: payment-service
+#                name: web-api
 #                fallbackuri: forward:/paymentFallback
 
 

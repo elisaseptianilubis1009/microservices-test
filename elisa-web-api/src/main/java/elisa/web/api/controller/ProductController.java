@@ -1,7 +1,8 @@
 package elisa.web.api.controller;
 
-import elisa.web.api.client.CustomerFeignClient;
+import elisa.web.api.client.ProductFeignClient;
 import elisa.web.api.payload.Customer;
+import elisa.web.api.payload.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,34 +15,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/web/customers")
+@RequestMapping("/web/products")
 @RequiredArgsConstructor
-public class CustomerController {
-  private final CustomerFeignClient customerFeignClient;
+public class ProductController {
 
+  private final ProductFeignClient productFeignClient;
 
   @PostMapping
-  public ResponseEntity saveCustomers(@RequestBody Customer customer){
-    return ResponseEntity.ok(customerFeignClient.saveCustomers(customer));
+  public ResponseEntity saveProducts(@RequestBody Product product){
+    return ResponseEntity.ok(productFeignClient.saveProducts(product));
   }
 
   @GetMapping
   public ResponseEntity getAll(){
-    return ResponseEntity.ok(customerFeignClient.getAllCustomers().get_embedded().getCustomers());
+    return ResponseEntity.ok(productFeignClient.getAllProducts().get_embedded().getProducts());
   }
 
   @DeleteMapping("/{id}")
   public ResponseEntity delete(@PathVariable("id") Long id){
-    return ResponseEntity.ok(customerFeignClient.delete(id));
+    productFeignClient.delete(id);
+    return ResponseEntity.ok("Product Deleted");
   }
 
   @GetMapping("/{id}")
   public ResponseEntity findById(@PathVariable("id") Long id){
-    return ResponseEntity.ok(customerFeignClient.findById(id));
+    return ResponseEntity.ok(productFeignClient.findById(id));
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity updateCustomer(@PathVariable("id") Long id, @RequestBody Customer customer){
-    return ResponseEntity.ok(customerFeignClient.updateCustomers(customer,id));
+  public ResponseEntity updateProduct(@PathVariable("id") Long id, @RequestBody Product product){
+    return ResponseEntity.ok(productFeignClient.updateProducts(product,id));
   }
+
 }
